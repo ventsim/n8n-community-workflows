@@ -1,10 +1,15 @@
 # Template submission guidelines
 ## 🔥 TLDR
-🎯 **Your template [should look something like this](https://n8n.io/workflows/4817-composestitch-separate-images-together-using-n8n-and-gemini-ai-image-editing/)** 
+🎯 **Your template [should look something like this](https://n8n.io/workflows/4817-composestitch-separate-images-together-using-n8n-and-gemini-ai-image-editing/)**
+
 📒 **Use sticky notes (it’s mandatory)**
+
 🔐 **Don't use hardcoded API keys in the HTTP node**
+
 📝 **Use markdown (not <HTML tags>) and `## H2 Headings`  for the description**
+
 🚫 **Don't repost/steal other people's workflows (you’ll be banned)**
+
 ---
 ## 📌 General Guidelines
 ### ✅ What Makes a Template Successful
