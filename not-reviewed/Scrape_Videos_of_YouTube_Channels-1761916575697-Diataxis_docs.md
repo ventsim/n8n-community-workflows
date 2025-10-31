@@ -6,9 +6,13 @@
 
 🔄 Conceptually, the workflow operates in sequential stages: initiation via a scheduled trigger, configuration of parameters like channel handles and time range, scraping of video data using YouTube APIs, enrichment with additional metadata, data transformation for consistency, and storage across multiple platforms. Key decision points include time window settings and batch processing to handle API limits, ensuring scalable and reliable data extraction.
 
-# How-to Guide
+# 🚀 How-to Guide
 
-🚀 1. Start by enabling the Schedule Trigger node and configuring the execution frequency. 2. In the Config node, input channel handles as a comma-separated list and define the time range using days ago parameters. 3. Authenticate the YouTube API nodes with OAuth2 credentials. 4. Enable desired storage nodes: for CSV, verify the file path in Read/Write Files from Disk; for database, set up PostgreSQL connection in Insert or update rows in a table; for sheets, configure Google Sheets credentials. 5. Execute the workflow and check outputs for completeness, ensuring all videos within the time window are captured and stored correctly.
+1. Start by enabling the Schedule Trigger node and configuring the execution frequency. 
+2. In the Config node, input channel handles as a comma-separated list and define the time range using days ago parameters.
+3. Authenticate the YouTube API nodes with OAuth2 credentials.
+4. Enable desired storage nodes: for CSV, verify the file path in Read/Write Files from Disk; for database, set up PostgreSQL connection in Insert or update rows in a table; for sheets, configure Google Sheets credentials.
+5. Execute the workflow and check outputs for completeness, ensuring all videos within the time window are captured and stored correctly.
 
 🛤️ The workflow includes conditional elements such as batch processing in the Loop Over Videos node, which processes 25 videos at a time to avoid API rate limits. Storage nodes are selectively enabled, allowing users to choose outputs without modifying the core logic. Error handling with retry mechanisms in API nodes ensures resilience against temporary failures, and the Merge node prioritizes the latest data to resolve clashes.
 
