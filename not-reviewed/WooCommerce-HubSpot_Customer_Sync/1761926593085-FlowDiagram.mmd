@@ -1,0 +1,30 @@
+graph TD
+    classDef dark fill:#2d3748,stroke:#4a5568,color:#ffffff
+    A[Trigger]:::dark
+    B{Is Webhook?}:::dark
+    B -->|Yes| C[Webhook Path: Process Single Customer]:::dark
+    B -->|No| D[Polling Path: Batch Process Customers]:::dark
+    C --> E{Has Email?}:::dark
+    E -->|Yes| F[Lookup in HubSpot]:::dark
+    E -->|No| G[Skip Customer]:::dark
+    F --> H{Contact Exists?}:::dark
+    H -->|Yes| I{Update Enabled?}:::dark
+    H -->|No| J[Create Contact]:::dark
+    I -->|Yes| K[Update Contact]:::dark
+    I -->|No| L[Skip Update]:::dark
+    D --> M[Loop Over Customers]:::dark
+    M --> N{Has Email?}:::dark
+    N -->|Yes| O[Lookup Emails in HubSpot]:::dark
+    N -->|No| P[Skip Customer]:::dark
+    O --> Q{Split Contacts}:::dark
+    Q -->|New| R[Create Contact]:::dark
+    Q -->|Existing| S{Update Enabled?}:::dark
+    S -->|Yes| T[Update Contact]:::dark
+    S -->|No| U[Skip Update]:::dark
+    K --> V[Add Origin Metadata if Enabled]:::dark
+    J --> V
+    T --> V
+    L --> V
+    U --> V
+    V --> W[Optional Notifications]:::dark
+    W --> X[End]:::dark
