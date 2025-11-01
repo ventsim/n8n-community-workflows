@@ -1,0 +1,16 @@
+%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#0d1117', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#30363d', 'lineColor': '#8b949e', 'tertiaryColor': '#161b22'}}}%%
+flowchart TD
+    A[🔄 Trigger Events] --> B{Trigger Type?}
+    B -->|Manual| C[📥 Fetch WooCommerce Orders]
+    B -->|Real-time| C
+    B -->|Scheduled| D[🔄 Batch Order Lookup]
+    D --> C
+    C --> E{Order Exists in HubSpot?}
+    E -->|No| F[👤 Customer Lookup & Association]
+    E -->|Yes| G[⏭️ Skip Sync]
+    F --> H[📊 Data Transformation & Mapping]
+    H --> I{Valid Customer Data?}
+    I -->|Yes| J[🛍️ Create HubSpot Order]
+    I -->|No| K[❌ Abort Order Creation]
+    J --> L[📦 Process Line Items & Products]
+    L --> M[✅ Sync Complete]
