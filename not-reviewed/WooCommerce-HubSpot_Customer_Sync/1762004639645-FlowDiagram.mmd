@@ -1,0 +1,24 @@
+graph TD
+    Start[Start Sync] --> Trigger{Trigger Type}
+    Trigger -->|Webhook| WebhookData[Fetch Webhook Customer Data]
+    Trigger -->|Batch| BatchData[Fetch Batch Customer Data]
+    WebhookData --> ProcessData[Process Customer Data]
+    BatchData --> ProcessData
+    ProcessData --> Extract[Extract Email Addresses]
+    Extract --> Lookup[Lookup Emails in HubSpot]
+    Lookup --> Exists{Contact Exists?}
+    Exists -->|Yes| UpdateCheck{Update Enabled?}
+    Exists -->|No| Create[Create New Contact]
+    UpdateCheck -->|Yes| Update[Update Existing Contact]
+    UpdateCheck -->|No| Skip[Skip Update]
+    Update --> OriginCheck{Add Origin Metadata?}
+    Create --> OriginCheck
+    Skip --> OriginCheck
+    OriginCheck -->|Yes| AddOrigin[Add Origin Metadata]
+    OriginCheck -->|No| NoOrigin[Skip Origin Update]
+    AddOrigin --> ErrorHandling[Handle Errors]
+    NoOrigin --> ErrorHandling
+    ErrorHandling --> End[Sync Complete]
+
+    class Start,WebhookData,BatchData,ProcessData,Extract,Lookup,Exists,UpdateCheck,Create,Update,Skip,OriginCheck,AddOrigin,NoOrigin,ErrorHandling,End fill:#333,stroke:#666,color:#fff
+    class Trigger,Exists,UpdateCheck,OriginCheck fill:#555,stroke:#777,color:#fff
