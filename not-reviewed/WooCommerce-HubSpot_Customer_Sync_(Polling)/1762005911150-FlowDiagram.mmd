@@ -1,0 +1,40 @@
+flowchart TD
+    A[📅 Trigger] --> B[⚙️ Configuration]
+    B --> C[🛒 Fetch WooCommerce Customers]
+    C --> D[🔍 Process & Match Contacts]
+    D --> E{New or Existing?}
+    E -->|New| F[➕ Create New Contacts]
+    E -->|Existing| G{Update Enabled?}
+    G -->|Yes| H[🔄 Update Existing Contacts]
+    G -->|No| I[⏭️ Skip Update]
+    F --> J[🔄 Sync Contacts]
+    H --> J
+    I --> J
+    J --> K{Email Valid?}
+    K -->|Yes| L[📧 Create/Update in HubSpot]
+    K -->|No| M[❌ Skip Invalid]
+    L --> N{Metadata Enabled?}
+    N -->|Yes| O[🏷️ Add Origin Metadata]
+    N -->|No| P[⏭️ Skip Metadata]
+    O --> Q[✅ Completion]
+    P --> Q
+    M --> Q
+    Q --> R[📢 Notifications]
+    style A fill:#2E8B57,color:white
+    style B fill:#4682B4,color:white
+    style C fill:#4682B4,color:white
+    style D fill:#FFA500,color:black
+    style E fill:#FF6347,color:white
+    style F fill:#32CD32,color:black
+    style G fill:#FF6347,color:white
+    style H fill:#4682B4,color:white
+    style I fill:#808080,color:white
+    style J fill:#FFA500,color:black
+    style K fill:#FF6347,color:white
+    style L fill:#4682B4,color:white
+    style M fill:#808080,color:white
+    style N fill:#FF6347,color:white
+    style O fill:#4682B4,color:white
+    style P fill:#808080,color:white
+    style Q fill:#2E8B57,color:white
+    style R fill:#FFD700,color:black
