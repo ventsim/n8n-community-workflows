@@ -1,0 +1,44 @@
+graph TD
+    A[Webhook Trigger] --> B[Load Configuration]
+    B --> C{Notifications Enabled?}
+    C -->|Yes| D[Send Start Notification]
+    C -->|No| E[Extract Customer Data]
+    D --> E
+    E --> F[Search HubSpot by Email]
+    F --> G{Contact Exists?}
+    G -->|Yes| H{Update Existing Contacts?}
+    G -->|No| I[Process New Contact]
+    H -->|Yes| I
+    H -->|No| J[Skip Contact]
+    I --> K[Batch Processing]
+    K --> L{Has Valid Email?}
+    L -->|Yes| M[Create/Update Contact in HubSpot]
+    L -->|No| N[Skip Invalid Email]
+    M --> O{Sync Origin Metadata?}
+    O -->|Yes| P[Update Custom Property]
+    O -->|No| Q[Processing Complete]
+    P --> Q
+    Q --> R{Notifications Enabled?}
+    R -->|Yes| S[Send End Notification]
+    R -->|No| T[Workflow Finished]
+    S --> T
+    style A fill:#1e3a5f,color:white
+    style B fill:#2c5f2d,color:white
+    style C fill:#5d4037,color:white
+    style D fill:#7b1fa2,color:white
+    style E fill:#0277bd,color:white
+    style F fill:#388e3c,color:white
+    style G fill:#f57c00,color:white
+    style H fill:#c2185b,color:white
+    style I fill:#00796b,color:white
+    style J fill:#616161,color:white
+    style K fill:#5d4037,color:white
+    style L fill:#d84315,color:white
+    style M fill:#2e7d32,color:white
+    style N fill:#757575,color:white
+    style O fill:#6a1b9a,color:white
+    style P fill:#ad1457,color:white
+    style Q fill:#00695c,color:white
+    style R fill:#5d4037,color:white
+    style S fill:#7b1fa2,color:white
+    style T fill:#1b5e20,color:white
