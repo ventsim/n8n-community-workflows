@@ -1,0 +1,20 @@
+graph TD
+    A[🔄 Manual Trigger] --> B[👥 Fetch WooCommerce Customers]
+    B --> C[📊 Process Customer Data]
+    C --> D{❓ Customer Eligible?<br/>lifetime_total > 90}
+    D -->|✅ Yes| E[👤 Create/Update HubSpot Contact]
+    D -->|❌ No| F[⏭️ Skip Contact Creation]
+    E --> G[📦 Fetch Customer Orders]
+    F --> G
+    G --> H[🔄 Process Orders]
+    H --> I{❓ Order Exists in HubSpot?}
+    I -->|❌ No| J[💼 Create HubSpot Order]
+    I -->|✅ Yes| K[⏭️ Skip Order Creation]
+    J --> L[📋 Extract Line Items]
+    L --> M[🔍 Find Matching HubSpot Products]
+    M --> N[📦 Create HubSpot Line Items]
+    K --> H
+    
+    classDef darkNode fill:#2d3748,stroke:#4a5568,color:#ffffff,stroke-width:2px
+    class A,B,C,D,E,F,G,H,I,J,K,L,M,N darkNode
+    linkStyle default stroke:#ffffff,stroke-width:2px
