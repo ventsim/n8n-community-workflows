@@ -1,0 +1,16 @@
+graph TD
+    A[Gmail Trigger] --> B[Parse Email]
+    B --> C[Fetch Monitor Details]
+    C --> D[Extract Status]
+    D --> E{Check Screenshot Required?}
+    E -->|Yes| F[Capture Screenshot]
+    F --> G[Send Photo Message]
+    E -->|No| H[Send Text Message]
+    style A fill:#2d2d2d,color:#ffffff
+    style B fill:#2d2d2d,color:#ffffff
+    style C fill:#2d2d2d,color:#ffffff
+    style D fill:#2d2d2d,color:#ffffff
+    style E fill:#2d2d2d,color:#ffffff
+    style F fill:#2d2d2d,color:#ffffff
+    style G fill:#2d2d2d,color:#ffffff
+    style H fill:#2d2d2d,color:#ffffff
