@@ -1,0 +1,25 @@
+flowchart TD
+    A[📥 Gmail Trigger<br/>Monitor Label_2 Emails] --> B[📋 Whitelist Validation<br/>Check Sender Against Google Sheets]
+    B --> C{❓ Company Folder Exists?}
+    C -->|No| D[📁 Create Company Folder<br/>Google Drive]
+    C -->|Yes| E[📅 Format Year/Month<br/>From Email Date]
+    D --> E
+    E --> F{❓ Year/Month Folder Exists?}
+    F -->|No| G[📂 Create Year/Month Folder<br/>Google Drive]
+    F -->|Yes| H[📧 Retrieve Full Email<br/>With Attachments]
+    G --> H
+    H --> I[🔧 Split Binary Data<br/>Separate Attachments]
+    I --> J[🔄 Process Attachments<br/>Batch Loop]
+    J --> K[📤 Upload Files<br/>With Timestamp Prefix]
+    
+    style A fill:#4285F4,color:white
+    style B fill:#34A853,color:white
+    style C fill:#FBBC05,color:black
+    style D fill:#EA4335,color:white
+    style E fill:#4285F4,color:white
+    style F fill:#FBBC05,color:black
+    style G fill:#EA4335,color:white
+    style H fill:#4285F4,color:white
+    style I fill:#34A853,color:white
+    style J fill:#FBBC05,color:black
+    style K fill:#EA4335,color:white
