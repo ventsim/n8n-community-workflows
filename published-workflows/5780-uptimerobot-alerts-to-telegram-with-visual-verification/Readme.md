@@ -2,6 +2,7 @@
 **Automatically sends Telegram notifications with optional screenshots when monitors change status (✅ UP/🔴 DOWN/⏸️ PAUSED)**
 
 Example Message in Telegram:
+
 ![telegram_message_screenshot](image.png)
 
 ## Who Is This For?
