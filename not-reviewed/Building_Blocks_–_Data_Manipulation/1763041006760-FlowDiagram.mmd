@@ -1,0 +1,28 @@
+flowchart TD
+    A[🚀 Manual Trigger] --> B[📊 Data Sources]
+    B --> C{Data Processing}
+    C --> D[🔍 Deduplicate Records]
+    C --> E[📋 Compare Lists]
+    C --> F[📦 Group by Field]
+    C --> G[📄 Flatten JSON]
+    C --> H[✨ Extract Unique Values]
+    D --> I[✅ Clean Data Output]
+    E --> J[✅ Matched Records]
+    E --> K[✅ Unmatched Records]
+    F --> L[✅ Grouped Data]
+    G --> M[✅ Flat Structure]
+    H --> N[✅ Unique Values]
+    style A fill:#4CAF50,color:white
+    style B fill:#2196F3,color:white
+    style C fill:#FF9800,color:white
+    style D fill:#9C27B0,color:white
+    style E fill:#3F51B5,color:white
+    style F fill:#009688,color:white
+    style G fill:#795548,color:white
+    style H fill:#607D8B,color:white
+    style I fill:#4CAF50,color:white
+    style J fill:#4CAF50,color:white
+    style K fill:#4CAF50,color:white
+    style L fill:#4CAF50,color:white
+    style M fill:#4CAF50,color:white
+    style N fill:#4CAF50,color:white
