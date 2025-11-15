@@ -1,0 +1,19 @@
+flowchart TD
+    style A fill:#0ea5e9,color:#ffffff
+    style B fill:#10b981,color:#ffffff
+    style C fill:#f59e0b,color:#ffffff
+    style D fill:#ef4444,color:#ffffff
+    style E fill:#8b5cf6,color:#ffffff
+    style F fill:#ec4899,color:#ffffff
+    A[📅 Schedule Trigger] --> B[📊 Data Sources]
+    B --> C[🔄 Data Processing]
+    C --> D[⚡ Conditional Routing]
+    D --> E[🔧 Item Processing]
+    E --> F[📦 Merge Results]
+    C --> G[🔄 Batch Processing]
+    G --> H[🌐 API Integration]
+    H --> F
+    C --> I[⚠️ Error Handling]
+    I --> J[🔍 Response Validation]
+    J --> K[🚨 Error Classification]
+    K --> L[🛠️ Error Handling]
